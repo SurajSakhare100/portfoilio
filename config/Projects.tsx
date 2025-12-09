@@ -84,7 +84,7 @@ export const projects: Project[] = [
   title: 'EarlyLaunch',
   description:
     'A no-code waitlist & pre-launch validation platform to help makers test SaaS ideas before building the full product.',
-  image: '/project/earlylaunch.png', 
+  image: '/project/earlyLaunch.png', 
   video: '',
   link: 'https://earlylaunch.xyz/',
   technologies: [
