@@ -13,7 +13,6 @@ import PostgreSQL from '@/components/technologies/PostgreSQL';
 import Prisma from '@/components/technologies/Prisma';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import TypeScript from '@/components/technologies/TypeScript';
-import { Component } from 'lucide-react';
 
 export const skillComponents = {
   TypeScript: TypeScript,
