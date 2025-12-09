@@ -1,15 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import Container from '@/components/common/Container';
-import SectionHeading from '@/components/common/SectionHeading';
 import { Separator } from '@/components/ui/separator';
 import { generateMetadata as getMetadata } from '@/config/Meta';
 import { Metadata } from 'next';
 import React from 'react';
 import CertificatesGallery from '@/components/CertificatesGallery';
-import Image from 'next/image';
 import { certificates as configuredCertificates } from '@/config/Achievements';
-import { Card } from '@/components/ui/card';
 
 export const metadata: Metadata = {
   ...getMetadata('/journey/certificates'),
@@ -32,11 +29,9 @@ export default function CertificatesPage() {
     discovered = [];
   }
 
-  // Merge configured certificates with discovered ones (configured entries take precedence)
   const configured = Array.isArray(configuredCertificates) ? configuredCertificates : [];
-  // Build map to avoid duplicates by file path
   const map = new Map<string, { file: string; title?: string; issuer?: string; date?: string }>();
-  configured.forEach((c: any) => map.set(c.file, c));
+  configured.forEach((c: { file: string; title?: string; issuer?: string; date?: string }) => map.set(c.file, c));
   discovered.forEach((d) => {
     if (!map.has(d.file)) map.set(d.file, d);
   });

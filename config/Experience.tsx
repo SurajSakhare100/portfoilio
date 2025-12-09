@@ -10,8 +10,28 @@ import ReactIcon from '@/components/technologies/ReactIcon';
 import TailwindCss from '@/components/technologies/TailwindCss';
 import TypeScript from '@/components/technologies/TypeScript';
 import Vercel from '@/components/technologies/Vercel';
-import Prisma from '@/components/technologies/Prisma';
+export interface Technology {
+  name: string;
+  href: string;
+  icon: React.ReactNode;
+}
 
+export interface Experience {
+  company: string;
+  position: string;
+  location: string;
+  image: string;
+  description: string[];
+  startDate: string;
+  endDate: string;
+  website: string;
+  x?: string;
+  linkedin?: string;
+  github?: string;
+  technologies: Technology[];
+  isCurrent: boolean;
+  isBlur?: boolean;
+}
 export const experiences = [
   {
     isCurrent: true,

@@ -3,7 +3,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-const blogDirectory = path.join(process.cwd(), 'src/data/blog');
+const blogDirectory = path.join(process.cwd(), '/data/blog');
 
 
 export function getBlogPostSlugs(): string[] {

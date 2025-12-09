@@ -21,7 +21,6 @@ interface BlogPostPageProps {
   }>;
 }
 
-// Generate static paths for all blog posts
 export async function generateStaticParams() {
   const slugs = getBlogPostSlugs();
 
@@ -30,11 +29,9 @@ export async function generateStaticParams() {
   }));
 }
 
-// Generate metadata for each blog post
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  //  await params
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
 

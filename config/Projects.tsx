@@ -10,6 +10,7 @@ import NodeJs from '@/components/technologies/NodeJs';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import TailwindCss from '@/components/technologies/TailwindCss';
 import { Project } from '@/types/project';
+import Vercel from '@/components/technologies/Vercel';
 
 export const projects: Project[] = [
   {
@@ -79,4 +80,27 @@ export const projects: Project[] = [
     projectDetailsPageSlug: '/projects/trendwave',
     isWorking: true,
   },
+ {
+  title: 'EarlyLaunch',
+  description:
+    'A no-code waitlist & pre-launch validation platform to help makers test SaaS ideas before building the full product.',
+  image: '/project/earlylaunch.png', 
+  video: '',
+  link: 'https://earlylaunch.xyz/',
+  technologies: [
+    { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+    { name: 'React', icon: <ReactIcon key="react" /> },
+    { name: 'Node.js', icon: <NodeJs key="nodejs" /> },
+    { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+    { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
+    { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+    { name: 'Vercel', icon: <Vercel key="vercel" /> },
+  ],
+  github: 'https://github.com/SurajSakhare100/earlylaunch', 
+  live: 'https://earlylaunch.xyz',
+  details: true,
+  projectDetailsPageSlug: '/projects/earlylaunch',
+  isWorking: true,
+}
+
 ];

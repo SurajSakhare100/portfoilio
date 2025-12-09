@@ -1,5 +1,4 @@
 import Container from '@/components/common/Container';
-import SectionHeading from '@/components/common/SectionHeading';
 import { Separator } from '@/components/ui/separator';
 import { generateMetadata as getMetadata } from '@/config/Meta';
 import { Metadata } from 'next';
@@ -25,7 +24,7 @@ export default function JourneyPage() {
               Journey
             </h1>
             <p className="mx-auto max-w-2xl text-base md:text-lg text-muted-foreground px-4">
-              No journey content found. Add `src/data/journey/journey.mdx` to
+              No journey content found. Add `/data/journey/journey.mdx` to
               display content here.
             </p>
           </div>

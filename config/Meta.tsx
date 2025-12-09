@@ -11,7 +11,7 @@ export interface PageMeta {
 
 export const siteConfig = {
   name: heroConfig.name,
-  title: 'Suraj Sakhare – Portfolio',
+  title: 'Suraj Sakhare - Portfolio',
   description: 'Full Stack Developer Portfolio of Suraj Sakhare',
   url: process.env.NEXT_PUBLIC_URL || 'http://localhost:3000',
   ogImage: '/meta/opengraph-image.png',

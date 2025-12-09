@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ExperienceCard } from './ExperienceCard';
+import { Experience } from '@/config/Experience';
 
 interface ExperienceListProps {
   experiences: Experience[];

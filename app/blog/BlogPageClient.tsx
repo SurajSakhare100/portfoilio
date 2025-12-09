@@ -36,7 +36,6 @@ export function BlogPageClient({
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [filteredPosts, setFilteredPosts] = useState(initialPosts);
 
-  // Get tag from URL params on mount
   useEffect(() => {
     const tagParam = searchParams.get('tag');
     if (tagParam) {

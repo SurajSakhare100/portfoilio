@@ -21,7 +21,6 @@ interface ProjectCaseStudyPageProps {
   }>;
 }
 
-// Generate static paths for all project case studies
 export async function generateStaticParams() {
   const slugs = getProjectCaseStudySlugs();
 
@@ -30,7 +29,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// Generate metadata for each project case study
 export async function generateMetadata({
   params,
 }: ProjectCaseStudyPageProps): Promise<Metadata> {
