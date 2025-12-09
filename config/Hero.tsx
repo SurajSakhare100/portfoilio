@@ -1,6 +1,8 @@
 import Github from '@/components/svgs/Github';
 import LinkedIn from '@/components/svgs/LinkedIn';
 import Mail from '@/components/svgs/Mail';
+import Medium from '@/components/svgs/Medium';
+import Pinterest from '@/components/svgs/Pinterest';
 import X from '@/components/svgs/X';
 import Bun from '@/components/technologies/Bun';
 import JavaScript from '@/components/technologies/JavaScript';
@@ -11,6 +13,7 @@ import PostgreSQL from '@/components/technologies/PostgreSQL';
 import Prisma from '@/components/technologies/Prisma';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import TypeScript from '@/components/technologies/TypeScript';
+import { Component } from 'lucide-react';
 
 export const skillComponents = {
   TypeScript: TypeScript,
@@ -26,7 +29,7 @@ export const skillComponents = {
 
 export const heroConfig = {
   name: 'Suraj Sakhare',
-  title: 'Full Stack Developer',
+  title: 'Full Stack web Developer',
   avatar: '/assets/logo.png', 
 
   skills: [
@@ -57,10 +60,10 @@ export const heroConfig = {
     },
   ],
 
-  description: {
-    template:
-      "I'm a developer who builds scalable products using {skills:0}, {skills:1}, {skills:2}, {skills:3}, and {skills:4}. Passionate about clean UI, automation, and shipping fast.",
-  },
+description: {
+  template:
+    "I create scalable full-stack applications with {skills:0}, {skills:1}, {skills:2}, {skills:3}, and {skills:4}. Dedicated to <b>clean UI/UX</b>, <b>high performance</b>, and <b>automation</b>, delivering robust solutions across the entire stack.",
+},
 
   buttons: [
     {
@@ -99,4 +102,14 @@ export const socialLinks = [
     href: 'mailto:sakharesuraj10@gmail.com',
     icon: <Mail />,
   },
+  {
+    name:'Pinterest',
+    href:'https://in.pinterest.com/sakharesuraj10/',
+    icon:<Pinterest />
+  },
+  {
+    name:'Medium',
+    href:'https://medium.com/@sakharesuraj10',
+    icon:<Medium />
+  }
 ];

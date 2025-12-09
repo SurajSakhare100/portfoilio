@@ -1,3 +1,4 @@
+import LinkedIn from '@/components/svgs/LinkedIn';
 import AWS from '@/components/technologies/AWS';
 import Bun from '@/components/technologies/Bun';
 import ExpressJs from '@/components/technologies/ExpressJs';
@@ -36,7 +37,7 @@ export const experiences = [
   {
     isCurrent: true,
     company: 'THE FRICK',
-    position: 'Full Stack Developer Intern',
+    position: 'Product Developer Intern',
     location: 'Mumbai, India (Remote)',
     image: '/company/frick.png',
     description: [
@@ -54,13 +55,12 @@ export const experiences = [
       { name: 'TypeScript', href: 'https://typescriptlang.org/', icon: <TypeScript /> },
       { name: 'Tailwind CSS', href: 'https://tailwindcss.com/', icon: <TailwindCss /> },
       { name: 'AWS', href: 'https://aws.amazon.com/', icon: <AWS /> },
-      { name: 'Docker', href: 'https://docker.com/', icon: <Bun /> }, // placeholder icon
       { name: 'Postman', href: 'https://postman.com/', icon: <Postman /> },
       { name: 'Vercel', href: 'https://vercel.com/', icon: <Vercel /> },
     ],
     website: 'https://thefrick.company',
     github: 'https://github.com/thefrick',
-    x: 'https://x.com/thefrick',
+    linkedin: 'https://www.linkedin.com/company/frick',
   },
 
   {

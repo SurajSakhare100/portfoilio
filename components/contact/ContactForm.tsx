@@ -1,5 +1,6 @@
 'use client';
 
+import Chat from '@/components/svgs/Chat';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -25,7 +26,6 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import * as z from 'zod';
 
-import Chat from '../svgs/Chat';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, {
