@@ -17,3 +17,71 @@ learnings:
   ['GEMINI API Integration', 'Automating Documentation', 'UI/UX for Productivity Tools', 'GitHub Authentication']
 isPublished: true
 ---
+
+## Overview
+
+**ReadSpark** is an AI-powered documentation tool that helps developers generate polished, professional README files in seconds.  
+It uses customizable templates, GitHub repository data, and AI content generation to simplify one of the most repetitive tasks in software development: writing documentation.
+
+The goal was to build a fast, intuitive tool that reduces friction for developers and encourages better project documentation.
+
+---
+
+## Key Features
+
+### **AI-Powered README Generation**
+- Generates structured READMEs using the **Gemini API**
+- Auto-creates sections like Overview, Features, Tech Stack, Installation, and Usage
+- Supports different writing styles depending on the template
+
+### **GitHub Integration**
+- Fetches repository data (name, description, topics, languages)
+- Automatically fills sections based on repo metadata
+- GitHub OAuth login for secure access
+
+### **Template System**
+- Multiple pre-designed README templates
+- Dynamic placeholders filled with AI-generated content
+- Users can customize templates before exporting
+
+### **UI/UX Designed for Speed**
+- Minimal, clean editor focused on productivity
+- Copy-to-clipboard and export-to-markdown options
+- Fully responsive interface
+
+---
+
+## API Endpoints
+
+### **GitHub Endpoints**
+```ts
+GET /api/github/repo
+GET /api/github/auth
+
+```ts
+POST /api/generate/readme
+POST /api/template/render
+
+```ts
+GET /api/templates
+POST /api/templates/custom
+
+## Challenges
+
+### Template Design
+- Designing flexible templates that worked for many tech stacks
+- Mapping dynamic placeholders to AI-generated content
+
+### GitHub API Integration
+- Handling rate limits and authentication flows
+- Parsing repo metadata reliably for README generation
+
+### AI Content Generation
+- Ensuring accurate, context-aware sections
+- Balancing creativity with correctness in technical content
+
+## Learnings
+- Practical integration of the Gemini API for structured text generation
+- Automating documentation workflows using templates + AI
+- UI/UX strategies for developer productivity tools
+- Handling GitHub OAuth and secure API access

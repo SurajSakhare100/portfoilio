@@ -13,7 +13,7 @@ export const siteConfig = {
   name: heroConfig.name,
   title: 'Suraj Sakhare - Portfolio',
   description: 'Full Stack Developer Portfolio of Suraj Sakhare',
-  url: process.env.NEXT_PUBLIC_URL || 'http://localhost:3000',
+  url: process.env.NEXT_PUBLIC_URL!,
   ogImage: '/meta/opengraph-image.png',
   author: {
     name: about.name,
@@ -156,7 +156,7 @@ export function generateMetadata(pathname: string) {
         {
           url: pageMeta.ogImage || siteConfig.ogImage,
           width: 1200,
-          height: 630,
+          height: 800,
           alt: pageMeta.title,
         },
       ],

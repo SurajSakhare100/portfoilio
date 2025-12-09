@@ -1,110 +1,93 @@
 ---
-title: 'Habit Pulse'
-description: 'A full-stack habit tracker SaaS with OTP login, reminders, analytics, and subscription payments.'
-image: '/project/habitpulse.png'
+title: 'EarlyLaunch'
+description: 'A no-code waitlist and pre-launch validation platform to help makers test SaaS ideas before building the full product.'
+image: '/project/earlylaunch.png'
 technologies:
-  ['Next.js', 'Node.js', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Firebase', 'Razorpay', 'Cloud Messaging']
-github: 'https://github.com/SurajSakhare100/habit-pulse'
-live: 'https://habitpulse.xyz'
+  ['Next.js', 'Node.js', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Firebase', 'EmailJS', 'Stripe']
+github: 'https://github.com/SurajSakhare100/earlylaunch'
+live: 'https://earlylaunch.xyz'
 timeline: '2 Months'
 role: 'Full Stack Developer'
 team: 'Solo'
 status: 'Completed'
 featured: true
 challenges:
-  ['Reminder Notifications', 'Recurring Subscriptions', 'Database Optimization', 'Real-time Sync']
+  ['Email/Notification Automation', 'Waitlist Management', 'Data Validation', 'Scalable SaaS Architecture']
 learnings:
-  ['Firebase Cloud Messaging', 'Razorpay Subscriptions', 'MongoDB Indexing', 'SaaS Architecture']
+  ['Firebase Cloud Messaging', 'Stripe Payments', 'MongoDB Indexing', 'SaaS Workflow Design']
 isPublished: true
 ---
 
 ## Overview  
 
-**Habit Pulse** is a full-stack SaaS habit-tracking platform built with **Next.js, Node.js, MongoDB, and Firebase Cloud Messaging**.  
-It includes secure OTP login, daily reminders, analytics dashboards, and subscription plans powered by Razorpay.
+**EarlyLaunch** is a no-code SaaS platform for pre-launch validation and waitlist management.  
+It allows makers to quickly test SaaS ideas, collect early signups, and gauge user interest before building the full product.  
 
-The goal was to build a production-ready habit-tracking tool with clean UI, fast performance, and smooth onboarding.
+The goal was to enable fast idea validation with minimal setup, automated notifications, and analytics.
 
 ---
 
 ## Key Features
 
-### **Authentication**
-- Secure OTP login using Firebase
-- Automatic session management
-- Fast onboarding optimized for mobile
+### **Authentication & Onboarding**
+- Secure email login with Firebase
+- Fast onboarding forms for collecting early users
+- Automatic session management for returning users
 
-### **Habit Management**
-- Create, update, and delete habits
-- Track daily, weekly, and monthly progress
-- Visual analytics for streaks and completion rates
+### **Waitlist Management**
+- Create multiple pre-launch campaigns
+- Track signups, referral activity, and user metrics
+- Real-time analytics for campaign performance
 
 ### **Notifications**
-- Real-time reminders using **Firebase Cloud Messaging**
-- Custom reminder timings per habit
-- High-delivery notifications with fallback handling
+- Email notifications for new signups, reminders, and updates
+- Optional push notifications using Firebase Cloud Messaging
+- Customizable templates for campaigns
 
-### **Payments**
-- Razorpay recurring subscription integration
-- Automatic plan activation & renewal
-- Webhooks for billing events
+### **Payments (Optional SaaS Launch)**
+- Stripe integration for early paid access or beta subscriptions
+- Webhooks to track subscription events
+- Automated billing and plan management
 
 ### **Performance**
-- Optimized MongoDB schemas with **compound indexes**
-- Query performance improved by nearly **50%**
-- Cached API responses for faster sync
+- Optimized MongoDB schemas for large waitlists
+- Caching API responses for fast load times
+- Scalable folder structure and API architecture
 
 ---
+
 ## API Endpoints
 
-### **Habit Endpoints**
+### **Waitlist Endpoints**
 
 ```ts
-GET /api/habits
-POST /api/habits
-PATCH /api/habits/:id
-DELETE /api/habits/:id
-Notification Service
-ts
-Copy code
+POST /api/waitlist/join
+GET /api/waitlist/:campaignId
+DELETE /api/waitlist/:id
+
+### **Email Endpoints**
+```ts
 POST /api/notify/send
 POST /api/notify/register-token
-Subscription Endpoints
-ts
-Copy code
-POST /api/subscribe/create-plan
-POST /api/subscribe/webhook
-GET /api/subscribe/status
-Challenges
-1. Implementing reliable push notifications
-Ensuring reminders reached every device required several layers of reliability:
 
-Token rotation handling
+## Challenges
 
-Background delivery compatibility
+### Automating notifications
+- Handling email & push notifications reliably
+- Retry queues for failed deliveries
+- Dynamic templates for different campaigns
 
-Retry queues for failed deliveries
+### Scalable waitlist management
+- Optimizing queries for large datasets
+- Ensuring consistent analytics and real-time updates
 
-2. Designing subscription billing
-Razorpay integration involved multiple moving parts:
+### Payment integration
+- Stripe plan creation, webhooks, and validation
+- Storing subscription states securely
 
-Secure signature verification for every transaction
-
-Webhooks for retries, failures, and renewals
-
-Persistent subscription states stored in the database
-
-3. Optimizing database reads
-Large datasets caused slow queries.
-Adding compound indexes improved read performance by nearly 50%.
-
-What I Learned
-Building SaaS-ready authentication + subscription systems
-
-Implementing real-world push notifications using FCM
-
-Database indexing & optimization techniques
-
-Structuring scalable APIs and folder architecture
-
-Deploying production-ready applications with analytics and monitoring
+## Learnings
+- Building SaaS-ready authentication and waitlist systems
+- Implementing real-world push and email notifications
+- MongoDB indexing and performance optimization
+- Structuring scalable APIs and modular project architecture
+- Deploying production-ready applications with analytics and monitoring

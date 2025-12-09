@@ -1,110 +1,118 @@
 ---
-title: 'Habit Pulse'
-description: 'A full-stack habit tracker SaaS with OTP login, reminders, analytics, and subscription payments.'
-image: '/project/habitpulse.png'
+title: 'TrendWave'
+description: 'A scalable MERN e-commerce platform with user authentication, PayPal payments, media uploads, and role-based dashboards for Admin, Vendor, and User.'
+image: '/project/trendwave.png'
 technologies:
-  ['Next.js', 'Node.js', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Firebase', 'Razorpay', 'Cloud Messaging']
-github: 'https://github.com/SurajSakhare100/habit-pulse'
-live: 'https://habitpulse.xyz'
-timeline: '2 Months'
+  ['MongoDB', 'Express.js', 'React', 'Node.js', 'Tailwind CSS', 'PayPal', 'Cloudinary', 'JWT', 'Redis']
+github: 'https://github.com/SurajSakhare100/trendwave'
+live: 'https://trendwave.xyz'
+timeline: '3 Months'
 role: 'Full Stack Developer'
 team: 'Solo'
 status: 'Completed'
 featured: true
 challenges:
-  ['Reminder Notifications', 'Recurring Subscriptions', 'Database Optimization', 'Real-time Sync']
+  ['Role-based access control', 'Reliable payment flows', 'Efficient media handling', 'Scaling reads/writes']
 learnings:
-  ['Firebase Cloud Messaging', 'Razorpay Subscriptions', 'MongoDB Indexing', 'SaaS Architecture']
+  ['Secure JWT auth & RBAC', 'PayPal subscription & order flows', 'Cloudinary image/video pipeline', 'Caching with Redis for performance']
 isPublished: true
 ---
 
-## Overview  
+## Overview
 
-**Habit Pulse** is a full-stack SaaS habit-tracking platform built with **Next.js, Node.js, MongoDB, and Firebase Cloud Messaging**.  
-It includes secure OTP login, daily reminders, analytics dashboards, and subscription plans powered by Razorpay.
+**TrendWave** is a scalable MERN e-commerce application built for modern marketplaces.  
+It supports secure user authentication, vendor product management, PayPal checkout, media uploads (images & video), and role-based dashboards for Admins, Vendors, and Customers.
 
-The goal was to build a production-ready habit-tracking tool with clean UI, fast performance, and smooth onboarding.
+The aim was to build a production-ready marketplace that handles media-rich product catalogs, robust payment flows, and clear operational dashboards.
 
 ---
 
 ## Key Features
 
-### **Authentication**
-- Secure OTP login using Firebase
-- Automatic session management
-- Fast onboarding optimized for mobile
+### **Authentication & Authorization**
+- Email/password + social OAuth sign-in
+- JWT-based authentication with refresh tokens
+- Role-Based Access Control (Admin, Vendor, User)
 
-### **Habit Management**
-- Create, update, and delete habits
-- Track daily, weekly, and monthly progress
-- Visual analytics for streaks and completion rates
+### **Product & Media Management**
+- Vendor dashboard to create/edit products with images & videos
+- Direct uploads to **Cloudinary** (or S3) with server-side validation
+- Automatic image transformations and CDN delivery
 
-### **Notifications**
-- Real-time reminders using **Firebase Cloud Messaging**
-- Custom reminder timings per habit
-- High-delivery notifications with fallback handling
+### **Checkout & Payments**
+- PayPal REST/Checkout integration for one-time payments and subscriptions
+- Webhooks for order confirmation, refunds, and subscription events
+- Secure server-side order creation and capture
 
-### **Payments**
-- Razorpay recurring subscription integration
-- Automatic plan activation & renewal
-- Webhooks for billing events
+### **Dashboards**
+- Admin: user management, analytics, order oversight, dispute handling
+- Vendor: product stats, order list, payout history, inventory controls
+- User: order history, saved items, profile & payment methods
 
-### **Performance**
-- Optimized MongoDB schemas with **compound indexes**
-- Query performance improved by nearly **50%**
-- Cached API responses for faster sync
+### **Performance & Scalability**
+- MongoDB schema design with indexes for fast product search
+- Redis caching for hot product lists and sessions
+- Background workers for media processing and email/webhook retries
 
 ---
+
 ## API Endpoints
 
-### **Habit Endpoints**
+### **Auth**
+```ts
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/refresh-token
+POST /api/auth/logout
+
+### **Users**
+```ts
+GET /api/users/:id
+PATCH /api/users/:id
+GET /api/users/me
+
+### **Products**
 
 ```ts
-GET /api/habits
-POST /api/habits
-PATCH /api/habits/:id
-DELETE /api/habits/:id
-Notification Service
-ts
-Copy code
-POST /api/notify/send
-POST /api/notify/register-token
-Subscription Endpoints
-ts
-Copy code
-POST /api/subscribe/create-plan
-POST /api/subscribe/webhook
-GET /api/subscribe/status
-Challenges
-1. Implementing reliable push notifications
-Ensuring reminders reached every device required several layers of reliability:
 
-Token rotation handling
+GET /api/products
+GET /api/products/:id
+POST /api/products           
+PATCH /api/products/:id     
+DELETE /api/products/:id    
+POST /api/products/:id/media /
 
-Background delivery compatibility
+### **Orders**
+```ts
+POST /api/orders/create      // create order server-side
+POST /api/paypal/create      // create PayPal order
+POST /api/paypal/capture     // capture/confirm payment
+POST /api/paypal/webhook     // webhook handler
+GET /api/orders/:id
 
-Retry queues for failed deliveries
+## Challenges
 
-2. Designing subscription billing
-Razorpay integration involved multiple moving parts:
+### Role-based access control
+- Designing middleware to enforce RBAC across routes  
+- Securing vendor-only actions and admin-level overrides  
 
-Secure signature verification for every transaction
+### Reliable payment flows
+- Handling PayPal order creation, capture, and edge cases (pending, failed)  
+- Verifying webhooks and reconciling orders with DB state  
 
-Webhooks for retries, failures, and renewals
+### Efficient media handling
+- Secure direct uploads with signed URLs  
+- Processing thumbnails, video transcoding, and managing storage costs  
 
-Persistent subscription states stored in the database
+### Scaling reads/writes
+- Hot product lists and search performance under load  
+- Using Redis and pagination to reduce database pressure  
 
-3. Optimizing database reads
-Large datasets caused slow queries.
-Adding compound indexes improved read performance by nearly 50%.
+## Learnings
+- Implemented secure JWT + refresh token flows and robust RBAC middleware  
+- Built reliable PayPal workflows with proper webhook verification/handling  
+- Designed media pipelines with Cloudinary for transformations and CDN delivery  
+- Applied Redis caching and background workers to boost performance  
+- Structured schemas and indexes for fast product search and analytics  
 
-What I Learned
-Building SaaS-ready authentication + subscription systems
 
-Implementing real-world push notifications using FCM
-
-Database indexing & optimization techniques
-
-Structuring scalable APIs and folder architecture
-
-Deploying production-ready applications with analytics and monitoring

@@ -65,46 +65,38 @@ POST /api/habits
 PATCH /api/habits/:id
 DELETE /api/habits/:id
 Notification Service
-ts
-Copy code
-POST /api/notify/send
-POST /api/notify/register-token
-Subscription Endpoints
-ts
-Copy code
+
+
+### *Subscription Endpoints*
+```ts
 POST /api/subscribe/create-plan
 POST /api/subscribe/webhook
 GET /api/subscribe/status
-Challenges
-1. Implementing reliable push notifications
+
+## Challenges
+
+### 1. Implementing reliable push notifications
 Ensuring reminders reached every device required several layers of reliability:
 
-Token rotation handling
+- Token rotation handling  
+- Background delivery compatibility  
+- Retry queues for failed deliveries  
 
-Background delivery compatibility
-
-Retry queues for failed deliveries
-
-2. Designing subscription billing
+### 2. Designing subscription billing
 Razorpay integration involved multiple moving parts:
 
-Secure signature verification for every transaction
+- Secure signature verification for every transaction  
+- Webhooks for retries, failures, and renewals  
+- Persistent subscription states stored in the database  
 
-Webhooks for retries, failures, and renewals
+### 3. Optimizing database reads
+Large datasets caused slow queries.  
+Adding **compound indexes** improved read performance by nearly **50%**.
 
-Persistent subscription states stored in the database
+## What I Learned
 
-3. Optimizing database reads
-Large datasets caused slow queries.
-Adding compound indexes improved read performance by nearly 50%.
-
-What I Learned
-Building SaaS-ready authentication + subscription systems
-
-Implementing real-world push notifications using FCM
-
-Database indexing & optimization techniques
-
-Structuring scalable APIs and folder architecture
-
-Deploying production-ready applications with analytics and monitoring
+- Building SaaS-ready authentication + subscription systems  
+- Implementing real-world push notifications using FCM  
+- Database indexing & optimization techniques  
+- Structuring scalable APIs and folder architecture  
+- Deploying production-ready applications with analytics and monitoring  
