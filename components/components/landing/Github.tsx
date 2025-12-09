@@ -11,7 +11,7 @@ import GithubIcon from '../svgs/Github';
 import { Button } from '../ui/button';
 
 const ActivityCalendar = dynamic(
-  () => import('react-activity-calendar').then((mod) => mod.default),
+  () => import('react-activity-calendar').then((mod) => mod.ActivityCalendar),
   { ssr: false },
 );
 
@@ -182,9 +182,6 @@ export default function Github() {
                   fontSize={githubConfig.fontSize}
                   colorScheme={theme === 'dark' ? 'dark' : 'light'}
                   maxLevel={githubConfig.maxLevel}
-                  hideTotalCount={true}
-                  hideColorLegend={false}
-                  hideMonthLabels={false}
                   theme={githubConfig.theme}
                   labels={{
                     months: githubConfig.months,
