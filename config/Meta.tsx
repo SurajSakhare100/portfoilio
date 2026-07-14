@@ -87,7 +87,7 @@ export const pageMetadata: Record<string, PageMeta> = {
   '/projects': {
     title: 'Projects - My Work & Portfolio',
     description:
-      'Browse my real-world projects including Habit Pulse, ReadSpark, TrendWave, and AI-powered tools.',
+      'Browse my real-world projects including Habit Pulse, ReadSpark, Byte, and AI-powered tools.',
     keywords: [
       'projects',
       'portfolio',
@@ -100,20 +100,6 @@ export const pageMetadata: Record<string, PageMeta> = {
     twitterCard: 'summary_large_image',
   },
 
-  '/blog': {
-    title: 'Blog - Insights & Tutorials',
-    description:
-      'Read tutorials, engineering breakdowns, productivity tips, and software development insights.',
-    keywords: [
-      'blog',
-      'tutorials',
-      'programming',
-      'development tips',
-      'engineering insights',
-    ],
-    ogImage: '/meta/blogs.png',
-    twitterCard: 'summary_large_image',
-  },
 
   '/resume': {
     title: 'Resume - Professional CV',

@@ -17,7 +17,7 @@ export const navbarConfig = {
     },
     {
       label: 'Blogs',
-      href: '/blog',
+      href: 'https://byte.surajx.in/',
     },
     {
       label: 'Projects',

@@ -11,8 +11,6 @@ import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import React from 'react';
 
-import { CodeCopyButton } from '../blog/CodeCopyButton';
-
 const TechnologyComponents: Record<string, React.ComponentType> = {
   'Next.js': NextJs,
   nextjs: NextJs,
@@ -292,7 +290,6 @@ export const ProjectComponents = {
         >
           {children}
         </pre>
-        <CodeCopyButton code={codeText} />
       </div>
     );
   },
