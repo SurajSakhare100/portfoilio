@@ -84,21 +84,7 @@ export const pageMetadata: Record<string, PageMeta> = {
     twitterCard: 'summary_large_image',
   },
 
-  '/projects': {
-    title: 'Projects - My Work & Portfolio',
-    description:
-      'Browse my real-world projects including Habit Pulse, ReadSpark, Byte, and AI-powered tools.',
-    keywords: [
-      'projects',
-      'portfolio',
-      'web apps',
-      'saas',
-      'mern stack',
-      'full stack projects',
-    ],
-    ogImage: '/meta/projects.png',
-    twitterCard: 'summary_large_image',
-  },
+
 
 
   '/resume': {
@@ -115,7 +101,7 @@ export const pageMetadata: Record<string, PageMeta> = {
     twitterCard: 'summary',
   },
 
-  
+
 };
 
 export function getPageMetadata(pathname: string): PageMeta {

@@ -1,0 +1,43 @@
+---
+title: "Oryn — AI Answer Engine"
+description: "Perplexity-style AI answer engine with cited, real-time web search"
+date: "2026-08"
+tags: ["Next.js", "FastAPI", "PostgreSQL", "LangChain", "RAG"]
+liveUrl: "#"
+githubUrl: "#"
+---
+
+# Oryn — AI Answer Engine
+
+**Jul 2026 – Aug 2026**
+
+Oryn is a Perplexity-style AI answer engine. Instead of returning a static, pre-trained answer, it takes a user query, searches the web in real time, pulls in fresh content, and synthesizes a cited, source-backed response — so answers stay current and verifiable instead of relying purely on an LLM's internal knowledge.
+
+## How it works
+
+**1. Query routing** — An 8B classifier model first looks at the incoming query and decides how it should be handled (e.g. does it need a fresh web search, or can it be answered directly), rather than sending every query down the same expensive path.
+
+**2. Concurrent retrieval** — For queries that need it, Oryn searches the web and crawls the top 3 sources *concurrently* using `asyncio.gather` instead of fetching them one at a time — cutting retrieval latency significantly.
+
+**3. RAG synthesis** — The retrieved content is fed into a RAG pipeline, and Llama-3.3 70B synthesizes a final answer with inline source citations, so users can trace every claim back to where it came from.
+
+**4. Follow-ups** — After answering, the system automatically generates contextual follow-up questions, mimicking a real research/search-assistant flow rather than a one-shot Q&A.
+
+## Highlights
+
+- **2-stage RAG pipeline**: 8B classifier for routing → concurrent multi-source retrieval → cited synthesis with Llama-3.3 70B.
+- **Multi-LLM orchestration** across 5 Groq-hosted models (Llama-3.3 70B, Mixtral 8x7B, Llama 3.1 8B), each used for a different job — routing, query reformulation, and final synthesis — to balance speed and quality instead of using one large model for everything.
+- **Custom ASGI middleware** built from scratch for sliding-window rate limiting (60 req/min per IP) and centralized error handling, so failures are caught and logged consistently across the API instead of per-route.
+
+## Why it's interesting
+
+Most RAG demos do single-shot retrieval with one model. Oryn's architecture treats retrieval and generation as a pipeline of specialized stages — cheap classification first, concurrent I/O-bound retrieval second, and expensive generation only at the end — which keeps the system fast and cost-efficient while still producing cited, trustworthy answers.
+
+## Stack
+
+`Next.js` · `FastAPI` · `PostgreSQL` · `LangChain` · `Groq`
+
+## Links
+
+- [Live Demo](#)
+- [GitHub](#)

@@ -1,102 +1,44 @@
 ---
-title: 'Habit Pulse'
-description: 'A full-stack habit tracker SaaS with OTP login, reminders, analytics, and subscription payments.'
-image: '/project/habitpulse.png'
-technologies:
-  ['Next.js', 'Node.js', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Firebase', 'Razorpay', 'Cloud Messaging']
-github: 'https://github.com/SurajSakhare100/habit-pulse'
-live: 'https://habitpulse.xyz'
-timeline: '2 Months'
-role: 'Full Stack Developer'
-team: 'Solo'
-status: 'Completed'
-featured: true
-challenges:
-  ['Reminder Notifications', 'Recurring Subscriptions', 'Database Optimization', 'Real-time Sync']
-learnings:
-  ['Firebase Cloud Messaging', 'Razorpay Subscriptions', 'MongoDB Indexing', 'SaaS Architecture']
-isPublished: true
+title: "Habit Pulse"
+description: "Full-stack habit tracker SaaS with OTP login, reminders, analytics, and subscription payments"
+date: "2026-05"
+tags: ["Next.js", "Node.js", "MongoDB", "Firebase", "Razorpay"]
+liveUrl: "https://habitpulse.xyz"
+githubUrl: "https://github.com/SurajSakhare100/habit-pulse"
 ---
 
-## Overview  
+# Habit Pulse
 
-**Habit Pulse** is a full-stack SaaS habit-tracking platform built with **Next.js, Node.js, MongoDB, and Firebase Cloud Messaging**.  
-It includes secure OTP login, daily reminders, analytics dashboards, and subscription plans powered by Razorpay.
+**Timeline: 2 Months — Solo**
 
-The goal was to build a production-ready habit-tracking tool with clean UI, fast performance, and smooth onboarding.
+Habit Pulse is a full-stack SaaS habit-tracking platform. Instead of a bare-bones tracker, it's built as a production-ready product — with secure login, real-time reminders, analytics, and paid subscriptions — so users can actually stick with habits and pay for the pro tier.
 
----
+## How it works
 
-## Key Features
+**1. OTP login** — Users sign in with Firebase-powered OTP auth instead of passwords, with automatic session management and an onboarding flow optimized for mobile.
 
-### **Authentication**
-- Secure OTP login using Firebase
-- Automatic session management
-- Fast onboarding optimized for mobile
+**2. Habit tracking** — Users create, update, and track habits daily, weekly, or monthly, with visual analytics showing streaks and completion rates over time.
 
-### **Habit Management**
-- Create, update, and delete habits
-- Track daily, weekly, and monthly progress
-- Visual analytics for streaks and completion rates
+**3. Reminders** — Firebase Cloud Messaging sends real-time push reminders on a per-habit custom schedule, with retry queues and fallback handling so notifications actually land.
 
-### **Notifications**
-- Real-time reminders using **Firebase Cloud Messaging**
-- Custom reminder timings per habit
-- High-delivery notifications with fallback handling
+**4. Subscriptions** — Razorpay handles recurring billing: plan activation, renewals, and webhook-driven state updates, so subscription status stays accurate without manual checks.
 
-### **Payments**
-- Razorpay recurring subscription integration
-- Automatic plan activation & renewal
-- Webhooks for billing events
+## Highlights
 
-### **Performance**
-- Optimized MongoDB schemas with **compound indexes**
-- Query performance improved by nearly **50%**
-- Cached API responses for faster sync
+- Built a **full-stack SaaS platform** with OTP auth, habit tracking, and analytics dashboards.
+- Implemented **real-time push notifications** via Firebase Cloud Messaging with retry handling for reliable delivery.
+- Integrated **Razorpay recurring subscriptions** with webhook-based billing state management.
+- Optimized MongoDB with **compound indexes**, improving query performance by ~50%.
 
----
-## API Endpoints
+## Why it's interesting
 
-### **Habit Endpoints**
+The hard part wasn't the habit-tracking CRUD — it was making the SaaS layer reliable: notifications that actually deliver, subscriptions that stay in sync with billing events, and a database that stays fast as data grows. Habit Pulse ties all three together into one working product.
 
-```ts
-GET /api/habits
-POST /api/habits
-PATCH /api/habits/:id
-DELETE /api/habits/:id
-Notification Service
+## Stack
 
+`Next.js` · `Node.js` · `TypeScript` · `MongoDB` · `Tailwind CSS` · `Firebase` · `Razorpay`
 
-### *Subscription Endpoints*
-```ts
-POST /api/subscribe/create-plan
-POST /api/subscribe/webhook
-GET /api/subscribe/status
+## Links
 
-## Challenges
-
-### 1. Implementing reliable push notifications
-Ensuring reminders reached every device required several layers of reliability:
-
-- Token rotation handling  
-- Background delivery compatibility  
-- Retry queues for failed deliveries  
-
-### 2. Designing subscription billing
-Razorpay integration involved multiple moving parts:
-
-- Secure signature verification for every transaction  
-- Webhooks for retries, failures, and renewals  
-- Persistent subscription states stored in the database  
-
-### 3. Optimizing database reads
-Large datasets caused slow queries.  
-Adding **compound indexes** improved read performance by nearly **50%**.
-
-## What I Learned
-
-- Building SaaS-ready authentication + subscription systems  
-- Implementing real-world push notifications using FCM  
-- Database indexing & optimization techniques  
-- Structuring scalable APIs and folder architecture  
-- Deploying production-ready applications with analytics and monitoring  
+- [Live Demo](https://habitpulse.xyz)
+- [GitHub](https://github.com/SurajSakhare100/habit-pulse)
