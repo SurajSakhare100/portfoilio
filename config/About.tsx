@@ -21,5 +21,5 @@ export const mySkills = [
 
 export const about = {
   name: 'Suraj Sakhare',
-  description: `I'm a Full Stack Developer with experience building scalable SaaS products, e-commerce systems, and automation tools. I’ve worked with teams to ship production apps using Next.js, Node.js, MongoDB, and AWS. I enjoy optimizing APIs, designing clean architectures, and turning ideas into fast, usable MVPs.`
+  description: `I'm a <b>Full Stack & AI Engineer</b> specializing in building <b>scalable web applications</b>, <b>agentic workflows</b>, and <b>intelligent developer tools</b>. Experienced across <b>Next.js</b>, <b>Node.js</b>, <b>Groq</b>, <b>LangChain</b>, and modern cloud databases, I focus on <b>low-latency architectures</b>, robust APIs, and turning ideas into fast, <b>production-ready software</b>.`
 };

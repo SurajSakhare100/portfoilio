@@ -44,7 +44,7 @@ export async function generateMetadata({
   const { title, description, image } = caseStudy.frontmatter;
 
   return {
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL(siteConfig.url || 'http://localhost:3000'),
     title: `${title} - Project Case Study`,
     description,
     openGraph: {

@@ -1,0 +1,48 @@
+---
+title: "Kivo — AI Full-Stack Web Builder"
+description: "AI web builder that generates, executes, and renders full-stack web applications from natural language prompts in real time"
+date: "2026-09"
+tags: ["Next.js", "Express", "Groq", "Redis", "WebContainer API", "Monaco Editor"]
+liveUrl: "https://kivo.surajx.in"
+githubUrl: "https://github.com/SurajSakhare100/kivo"
+image: "/project/kivo.png"
+status: "completed"
+role: "Full Stack Developer"
+featured: true
+isPublished: true
+---
+
+# Kivo — AI Full-Stack Web Builder
+
+**Sep 2026 – Present**
+
+Kivo is an AI-powered full-stack web builder that generates, runs, and live-previews full web applications from natural language prompts in under 3 seconds. Instead of just producing raw code snippets, Kivo spins up a full client-side Node.js environment in the browser to execute and render applications with live interactive previews.
+
+## How it works
+
+**1. Prompt to Full-Stack App** — The user inputs a prompt describing their app idea. An agentic AI loop powered by Groq LLMs orchestrates code scaffolding, file system generation, and dependency resolution.
+
+**2. In-Browser Execution with WebContainer API** — Rather than relying on heavy server-side virtual machines, Kivo leverages WebContainer API to execute Node.js runtimes directly within the browser, enabling instant container boots, zero server compute overhead, and instant live preview rendering.
+
+**3. Monaco Editor & Persistent Storage** — Users can inspect, edit, and modify the generated files using an integrated Monaco Editor with syntax highlighting and file tree navigation. Project states and file trees persist client-side via IndexedDB.
+
+**4. Real-time Streaming & Tool Calling** — Uses Server-Sent Events (SSE) to stream code generation tokens, tool actions, and terminal outputs to the UI in real time with Redis-backed sliding-window rate limiting.
+
+## Highlights
+
+- **Sub-3s Generation**: Built an AI web builder with Next.js 16, Express, and Groq LLM that generates and renders web apps from natural language prompts in under 3 seconds.
+- **Client-Side Node.js Execution**: Developed a browser-based coding environment using WebContainer API, Monaco Editor, and IndexedDB for client-side Node.js execution, live previews, and persistent code storage.
+- **Agentic AI Architecture**: Engineered an agentic AI loop with tool calling, SSE streaming, and Redis rate limiting for high-throughput, responsive generation.
+
+## Why it's interesting
+
+Running full-stack dev environments usually requires heavy cloud sandbox infrastructure (Docker containers, microVMs) that are slow to boot and expensive to host. Kivo shifts the entire runtime into the browser using WebContainer API and IndexedDB, achieving near-instant boot times and zero VM hosting costs while maintaining a fluid, agentic generation loop.
+
+## Stack
+
+`Next.js` · `Express` · `Groq` · `Redis` · `WebContainer API` · `Monaco Editor` · `TypeScript` · `Tailwind CSS`
+
+## Links
+
+- [Live Demo](https://kivo.surajx.in)
+- [GitHub](https://github.com/SurajSakhare100/kivo)

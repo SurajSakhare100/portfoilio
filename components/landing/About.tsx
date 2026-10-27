@@ -1,4 +1,5 @@
 import { about, mySkills } from '@/config/About';
+import { parseBoldText } from '@/lib/hero';
 import Image from 'next/image';
 import React from 'react';
 
@@ -20,7 +21,17 @@ export default function About() {
         />
         <div className="mt-4">
           <h3 className="text-2xl font-bold">{about.name}</h3>
-          <p className="text-secondary mt-4">{about.description}</p>
+          <p className="text-secondary mt-4 leading-relaxed">
+            {parseBoldText(about.description).map((part) =>
+              part.bold ? (
+                <b key={part.key} className="text-primary font-semibold">
+                  {part.text}
+                </b>
+              ) : (
+                <span key={part.key}>{part.text}</span>
+              ),
+            )}
+          </p>
           <p className="text-secondary mt-8 font-bold">Skills</p>
           <div className="flex flex-wrap gap-2">
             {mySkills.map((skill) => (

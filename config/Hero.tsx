@@ -28,7 +28,7 @@ export const skillComponents = {
 
 export const heroConfig = {
   name: 'Suraj Sakhare',
-  title: 'Full Stack web Developer',
+  title: 'Full Stack & AI Engineer',
   avatar: '/assets/logo.png', 
 
   skills: [
@@ -59,10 +59,10 @@ export const heroConfig = {
     },
   ],
 
-description: {
-  template:
-    "I create scalable full-stack applications with {skills:0}, {skills:1}, {skills:2}, {skills:3}, and {skills:4}. Dedicated to <b>clean UI/UX</b>, <b>high performance</b>, and <b>automation</b>, delivering robust solutions across the entire stack.",
-},
+  description: {
+    template:
+      "I engineer scalable full-stack applications and intelligent AI systems using {skills:0}, {skills:1}, {skills:2}, {skills:3}, and {skills:4}. Focused on <b>agentic AI loops</b>, <b>LLM orchestration</b>, and <b>high-performance architecture</b> — building fast, reliable products from natural language to production.",
+  },
 
   buttons: [
     {

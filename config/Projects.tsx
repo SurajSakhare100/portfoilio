@@ -11,8 +11,29 @@ import { AI } from '@/components/components/technologies/AI';
 import { LangChain } from '@/components/components/technologies/LangChain';
 import { Groq } from '@/components/components/technologies/Groq';
 import { Postgres } from '@/components/components/technologies/Postgres';
+import Redis from '@/components/technologies/Redis';
 
 export const projects: Project[] = [
+  {
+    title: 'Kivo',
+    description:
+      'AI full-stack web builder that generates and renders web apps from natural language prompts in under 3 seconds with in-browser Node.js execution.',
+    image: '/project/kivo.png',
+    video: '',
+    link: 'https://kivo.surajx.in',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'Express', icon: <ExpressJs key="expressjs" /> },
+      { name: 'Groq', icon: <Groq key="Groq" /> },
+      { name: 'Redis', icon: <Redis key="redis" /> },
+    ],
+    github: 'https://github.com/SurajSakhare100/kivo',
+    live: 'https://kivo.surajx.in',
+    details: true,
+    projectDetailsPageSlug: '/projects/kivo',
+    isWorking: true,
+  },
+
   {
     title: 'Oryn',
     description:

@@ -21,7 +21,7 @@ export const parseTemplate = (
         }
       }
 
-      const boldParts = part.split(/(<b>.*?<\/b>)/);
+      const boldParts = part.split(/(<b>.*?<\/b>)/).filter(Boolean);
       return boldParts.map((boldPart, boldIndex) => {
         if (boldPart.startsWith('<b>') && boldPart.endsWith('</b>')) {
           return {

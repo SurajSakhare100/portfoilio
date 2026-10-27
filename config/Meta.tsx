@@ -12,8 +12,14 @@ export interface PageMeta {
 export const siteConfig = {
   name: heroConfig.name,
   title: 'Suraj Sakhare - Portfolio',
-  description: 'Full Stack Developer Portfolio of Suraj Sakhare',
-  url: process.env.NEXT_PUBLIC_URL!,
+  description: 'Full Stack & AI Engineer Portfolio of Suraj Sakhare',
+  url:
+    process.env.NEXT_PUBLIC_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : 'http://localhost:3000'),
   ogImage: '/meta/opengraph-image.png',
   author: {
     name: about.name,
@@ -39,7 +45,7 @@ export const siteConfig = {
 export const pageMetadata: Record<string, PageMeta> = {
   '/': {
     title: `${heroConfig.name} - ${heroConfig.title}`,
-    description: `${about.description} Explore my projects, experience, achievements, and skills.`,
+    description: `${about.description.replace(/<[^>]*>/g, '')} Explore my projects, experience, achievements, and skills.`,
     keywords: [
       'suraj sakhare',
       'portfolio',
@@ -87,6 +93,23 @@ export const pageMetadata: Record<string, PageMeta> = {
 
 
 
+  '/projects': {
+    title: 'Projects - Suraj Sakhare',
+    description:
+      'Browse my real-world projects including Kivo, Oryn, Invo, Habit Pulse, and Byte.',
+    keywords: [
+      'projects',
+      'portfolio',
+      'web apps',
+      'saas',
+      'kivo',
+      'oryn',
+      'full stack projects',
+    ],
+    ogImage: '/meta/projects.png',
+    twitterCard: 'summary_large_image',
+  },
+
   '/resume': {
     title: 'Resume - Professional CV',
     description: `Download the professional resume of ${heroConfig.name}. Includes experience at THE FRICK, GSSoC contributions, skills, and achievements.`,
@@ -110,9 +133,10 @@ export function getPageMetadata(pathname: string): PageMeta {
 
 export function generateMetadata(pathname: string) {
   const pageMeta = getPageMetadata(pathname);
+  const siteUrl = siteConfig.url || 'http://localhost:3000';
 
   return {
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL(siteUrl),
     title: pageMeta.title,
     description: pageMeta.description,
     keywords: pageMeta.keywords?.join(', '),

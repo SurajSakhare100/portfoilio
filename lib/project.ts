@@ -34,13 +34,67 @@ export function getProjectCaseStudyBySlug(
       return null;
     }
 
+    interface RawProjectFrontmatter {
+      title?: string;
+      description?: string;
+      image?: string;
+      technologies?: string[];
+      tags?: string[];
+      github?: string;
+      githubUrl?: string;
+      live?: string;
+      liveUrl?: string;
+      timeline?: string;
+      date?: string;
+      role?: string;
+      team?: string;
+      status?: 'completed' | 'in-progress' | 'archived';
+      featured?: boolean;
+      challenges?: string[];
+      learnings?: string[];
+      isPublished?: boolean;
+    }
+
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
-
-    const frontmatter = data as ProjectCaseStudyFrontmatter;
-    if (!frontmatter.title || !frontmatter.description) {
+    const rawData = data as RawProjectFrontmatter;
+    if (!rawData.title || !rawData.description) {
       throw new Error(`Invalid frontmatter in ${slug}.mdx`);
     }
+
+    const projectInConfig = projects.find(
+      (p) =>
+        p.projectDetailsPageSlug === `/projects/${slug}` ||
+        p.title.toLowerCase() === slug.toLowerCase(),
+    );
+
+    const frontmatter: ProjectCaseStudyFrontmatter = {
+      title: rawData.title,
+      description: rawData.description,
+      image: rawData.image || projectInConfig?.image || `/project/${slug}.png`,
+      technologies:
+        rawData.technologies ||
+        rawData.tags ||
+        (projectInConfig ? projectInConfig.technologies.map((t) => t.name) : []),
+      github:
+        rawData.github ||
+        rawData.githubUrl ||
+        projectInConfig?.github ||
+        'https://github.com/SurajSakhare100',
+      live:
+        rawData.live ||
+        rawData.liveUrl ||
+        projectInConfig?.live ||
+        '#',
+      timeline: rawData.timeline || rawData.date || '2026',
+      role: rawData.role || 'Full Stack Developer',
+      team: rawData.team,
+      status: rawData.status || 'completed',
+      featured: rawData.featured ?? true,
+      challenges: rawData.challenges || [],
+      learnings: rawData.learnings || [],
+      isPublished: rawData.isPublished !== false,
+    };
 
     return {
       slug,
